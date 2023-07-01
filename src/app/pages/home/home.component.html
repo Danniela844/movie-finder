@@ -1,0 +1,39 @@
+<main class="overflow-auto">
+  <div class="container mt-5" style="background-color: rgba(0, 0, 0, 0.826)">
+    <div class="row">
+      <div class="text-center">
+        <h1>Bem vindo..</h1>
+        <h5>
+          Busque o filme que você deseja e veja mais informações sobre ele!!
+        </h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <input [(ngModel)]="nomeFilme" type="text" class="form-control bg-dark border-0 text-secondary placeholder-color"
+           placeholder="Pesquise seu filme..." aria-label="Pesquisar filme">
+      </div>
+
+      <div class="col-md-2">
+        <app-button
+          (click)="buscarFilme()"
+          [textoBotao]="'Pesquisar'"
+          [classeBotao]="'btn btn-outline-danger'"
+          style="margin-right: 10px;">
+        </app-button>
+
+        <app-button
+        (click)="limparCampo()"
+        [textoBotao]="'Limpar'"
+        [classeBotao]="'btn btn-outline-light'">
+        </app-button>
+      </div>
+    </div>
+
+    <section>
+      
+    </section>
+  </div>
+</main>
+
