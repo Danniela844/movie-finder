@@ -1,31 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+$colorLogo: #eed61d85;
+$colorH1: #eacb2f92;
+$colorH2: #e4d06f92;
+$opacHeaderFooter: rgba(0, 0, 0, 0.884);
 
 body {
   margin: 0;
-  padding: 0;
+  padding-top: 0;
 }
 
 main {
-  height: 75vh;
+  padding: 2% 20% 5% 20%;
+  min-height: 75vh;
 }
 
-.opacidade {
-  // background-color: rgba(34, 52, 102, 0.5)
-  // background-color: rgba(102, 34, 34, 0.5)
-  background-color: rgba(216, 32, 32, 0.1)
+h1 {
+  font-size: 25px;
+  color: $colorH1;
+  font-family: 'Cinzel Decorative', Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 15px;
+  color: $colorH2;
+}
+
+.focus-ring {
+  --bs-focus-ring-color: rgba(var(--bs-secondary-rgb), .25)
+}
+
+.opc-footer {
+  background-color: $opacHeaderFooter;
+}
+
+.opc-header {
+  background-color: $opacHeaderFooter;
 }
 
 .pagina {
-  // background-image: url('https://images.unsplash.com/photo-1514306191717-452ec28c7814?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');
-  background-image:
-  url('https://images.unsplash.com/photo-1653853301139-f57c5fdc069a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80');
-  background-repeat:repeat;
+  background-image: url('./assets/background-page.webp');
+  background-repeat: repeat;
   background-size: contain;
   background-color: #222;
   color: azure;
 }
 
-.flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.font-logo {
+  font-size: 25px;
+  color: $colorLogo;
+  text-shadow: 1px 2px 10px rgb(194, 203, 22);
+  font-family: 'Cinzel Decorative', Arial, Helvetica, sans-serif;
+
+  -webkit-animation: tracking-in-expand 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  animation: tracking-in-expand 3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+  @-webkit-keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }

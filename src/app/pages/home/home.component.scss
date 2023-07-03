@@ -1,11 +1,22 @@
-// @import './../../../../../node_modules/bootstrap/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
 
-// .placeholder-color:placeholder {
-//   color:;
-// }
+$colorGold: #eacb2f92;
+
+button {
+  width: 100%;
+}
 
 .placeholder-color::placeholder {
   color: grey;
 }
 
-// .border
+.container {
+  background-color: rgba(0, 0, 0, 0.884);
+  // box-shadow: 1px 7px 49px 12px #cebe306b
+}
+
+.color-gold {
+  font-size: 25px;
+  color: $colorGold;
+  font-family: 'Cinzel Decorative', Arial, Helvetica, sans-serif;
+}

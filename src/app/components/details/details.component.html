@@ -1,1 +1,21 @@
-<div></div>
+<div class="row p-3" *ngIf="dados?.Response === 'True'">
+  <div class="col-md-8">
+    <h1>{{ dados.Title }}</h1>
+    <h2>{{ dados.Plot}}</h2>
+    <p><b>Ator:</b> {{ dados.Actors }}</p>
+    <p><b>Gênero:</b> {{ dados.Genre }}</p>
+    <p><b>Idioma:</b> {{ dados.Language }}</p>
+    <p>
+      <b>Avaliação: </b> <app-icon-star [avaliacao]="dados.Metascore"></app-icon-star>
+    </p>
+    <button (click)="AddFilmeAosFavoritos()" class="btn btn-dark mb-3 text-warning">
+      Favoritar&nbsp;<i class="bi bi-suit-heart"></i>
+    </button>
+  </div>
+
+  <div class="col-md-4">
+    <figure>
+      <img [src]="dados.Poster" alt="Poster do filme" class="img-fluid">
+    </figure>
+  </div>
+</div>

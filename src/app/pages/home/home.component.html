@@ -1,39 +1,56 @@
-<main class="overflow-auto">
-  <div class="container mt-5" style="background-color: rgba(0, 0, 0, 0.826)">
-    <div class="row">
-      <div class="text-center">
-        <h1>Bem vindo..</h1>
-        <h5>
-          Busque o filme que você deseja e veja mais informações sobre ele!!
-        </h5>
+<main>
+  <div class="container rounded-2">
+    <div style="padding: 0 50px 0 50px;">
+      <div class="row">
+        <div class="text-center mt-3">
+          <h1>Bem-vindo!</h1>
+          <h2>
+            Busque o filme que você deseja e veja mais informações sobre ele
+          </h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-2">
+          <input placeholder="Finder..." [(ngModel)]="nomeFilme" (keyup.enter)="buscarFilme()" type="text"
+            title="Nome do filme..." class="form-control focus-ring bg-dark border-0 text-secondary placeholder-color"
+            aria-label="Pesquisar filme"
+            >
+        </div>
+
+        <div class="col-md-3 mb-2">
+          <button title="Pesquisar" [disabled]="!nomeFilme" (click)="buscarFilme()" class="btn btn-outline-light">
+            Buscar
+          </button>
+        </div>
+
+        <div class="col-md-3">
+          <button title="Limpar" [disabled]="!nomeFilme" (click)="limparCampo()" class="btn btn-outline-danger">
+            Limpar
+          </button>
+        </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-10">
-        <input [(ngModel)]="nomeFilme" type="text" class="form-control bg-dark border-0 text-secondary placeholder-color"
-           placeholder="Pesquise seu filme..." aria-label="Pesquisar filme">
-      </div>
+    <article>
+      <app-spinner *ngIf="ativarSpinner" class="d-flex justify-content-center"></app-spinner><br>
+      <app-not-found
+        [titulo]="'Ooops!'"
+        [mensagem]="'Não encontramos o filme que você procura'"
+        *ngIf="!ativarSpinner && dados?.Response === 'False'">
+      </app-not-found><br>
 
-      <div class="col-md-2">
-        <app-button
-          (click)="buscarFilme()"
-          [textoBotao]="'Pesquisar'"
-          [classeBotao]="'btn btn-outline-danger'"
-          style="margin-right: 10px;">
-        </app-button>
+      <app-details (emitirEvento)="receberListaDeFavoritos($event)"></app-details><br>
+    </article>
 
-        <app-button
-        (click)="limparCampo()"
-        [textoBotao]="'Limpar'"
-        [classeBotao]="'btn btn-outline-light'">
-        </app-button>
+    <div class="row text-center" *ngIf="exibirFavoritos">
+      <h2 class="color-gold">LISTA DE FAVORITOS...</h2>
+      <div *ngFor="let filme of listaDeFilmesFavoritos" class="col-md-3 img-fluid">
+        <figure>
+          <img [src]="filme.Poster" height="100hh" alt="Imagens filmes favoritos">
+          <figcaption><p><b>{{ filme.Title }}</b></p></figcaption>
+        </figure>
       </div>
     </div>
-
-    <section>
-      
-    </section>
   </div>
 </main>
-
