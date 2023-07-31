@@ -1,5 +1,4 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { environment } from '../../environments/environment'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -10,8 +9,8 @@ export class FilmeService {
   public emiteEventoExibirDetalhesFilme = new EventEmitter();
   public emiteEventoOcultarDetalhesFilme = new EventEmitter();
 
-  private url = environment.url;
-  private apiKey = environment.apiKey;
+  private url: string = 'http://www.omdbapi.com/';
+  private apiKey: string = 'e1d16277';
   private listaDeFilmesFavoritos: string = 'filmes-favoritos';
 
   constructor(private http: HttpClient) { }
