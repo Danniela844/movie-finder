@@ -9,7 +9,7 @@ export class FilmeService {
   public emiteEventoExibirDetalhesFilme = new EventEmitter();
   public emiteEventoOcultarDetalhesFilme = new EventEmitter();
 
-  private url: string = 'http://www.omdbapi.com/';
+  private url: string = 'https://www.omdbapi.com/';
   private apiKey: string = 'e1d16277';
   private listaDeFilmesFavoritos: string = 'filmes-favoritos';
 
